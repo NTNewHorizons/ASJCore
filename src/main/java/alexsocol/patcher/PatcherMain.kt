@@ -10,6 +10,7 @@ import alexsocol.patcher.asm.ASJHookLoader
 import alexsocol.patcher.crafting.CraftingHandler
 import alexsocol.patcher.event.ServerStartedEvent
 import alexsocol.patcher.event.ServerStartingEvent
+import alexsocol.patcher.event.ServerStoppedEvent
 import alexsocol.patcher.event.ServerStoppingEvent
 import alexsocol.patcher.handler.PatcherEventHandler
 import alexsocol.patcher.handler.PatcherEventHandlerClient
