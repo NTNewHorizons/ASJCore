@@ -49,22 +49,12 @@ fun func_150567_a(target: BiomeGenJungle, rand: Random): WorldGenAbstractTree? {
 }
 
 // add more blindness
-@CreateHRG(name = "blindnessDegree")
-@HookReplacer(targetMethod = "setupFog", mandatoryGroups = ["blindnessDegree"])
+@HookReplacer(targetMethod = "setupFog", onlyNthMatches = [1])
 fun blindnessDegree(er: EntityRenderer, fogMode: Int, ticks: Float) {
 	startFROM()
-	POP(5f); FSTORE("6")
+	POP(5f)
 	startTO()
-	POP(5f / (ALOAD<EntityLivingBase>("3").getActivePotionEffect(Potion.blindness).amplifier + 1)); FSTORE("6")
-	stop()
-}
-
-@HookReplacer(targetMethod = "setupFog", mandatoryGroups = ["blindnessDegree"])
-fun blindnessDegreeOF(er: EntityRenderer, fogMode: Int, ticks: Float) {
-	startFROM()
-	POP(5f); FSTORE("8")
-	startTO()
-	POP(5f / (ALOAD<EntityLivingBase>("3").getActivePotionEffect(Potion.blindness).amplifier + 1)); FSTORE("8")
+	POP(5f / (ALOAD<EntityLivingBase>("3").getActivePotionEffect(Potion.blindness).amplifier + 1))
 	stop()
 }
 

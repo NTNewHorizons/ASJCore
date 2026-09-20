@@ -12,7 +12,7 @@ import static com.KAIIIAK.classManipulators.HookReplacer.Replacer.stop;
 
 public class CapeRotationsFix {
 	
-	@HookReplacer(targetMethod = "renderEquippedItems")
+	@HookReplacer(targetMethod = "renderEquippedItems", isMandatory = false)
 	@SideOnly(Side.CLIENT)
 	public static void fixCapeAxisX(RenderPlayer render, AbstractClientPlayer player, float ticks) {
 		startFROM();
@@ -21,8 +21,18 @@ public class CapeRotationsFix {
 		POPLine();POP(MathHelper.clamp_float(6F + FLOAD("19") / 2F + FLOAD("18"), 0f, 90f));
 		POPLine();stop();
 	}
+
+	@HookReplacer(targetMethod = "renderEquippedItems", isMandatory = false)
+	@SideOnly(Side.CLIENT)
+	public static void fixCapeAxisXShifted(RenderPlayer render, AbstractClientPlayer player, float ticks) {
+		startFROM();
+		POPLine();POP(6F + FLOAD("20") / 2F + FLOAD("19"));
+		POPLine();startTO();
+		POPLine();POP(MathHelper.clamp_float(6F + FLOAD("20") / 2F + FLOAD("19"), 0f, 90f));
+		POPLine();stop();
+	}
 	
-	@HookReplacer(targetMethod = "renderEquippedItems")
+	@HookReplacer(targetMethod = "renderEquippedItems", isMandatory = false)
 	@SideOnly(Side.CLIENT)
 	public static void fixCapeAxisZ(RenderPlayer render, AbstractClientPlayer player, float ticks) {
 		startFROM();
@@ -31,14 +41,34 @@ public class CapeRotationsFix {
 		POPLine();POP(MathHelper.clamp_float(FLOAD("20") / 2F, -45f, 45f));
 		POPLine();stop();
 	}
+
+	@HookReplacer(targetMethod = "renderEquippedItems", isMandatory = false)
+	@SideOnly(Side.CLIENT)
+	public static void fixCapeAxisZShifted(RenderPlayer render, AbstractClientPlayer player, float ticks) {
+		startFROM();
+		POPLine();POP(FLOAD("21") / 2F);
+		POPLine();startTO();
+		POPLine();POP(MathHelper.clamp_float(FLOAD("21") / 2F, -45f, 45f));
+		POPLine();stop();
+	}
 	
-	@HookReplacer(targetMethod = "renderEquippedItems")
+	@HookReplacer(targetMethod = "renderEquippedItems", isMandatory = false)
 	@SideOnly(Side.CLIENT)
 	public static void fixCapeAxisY(RenderPlayer render, AbstractClientPlayer player, float ticks) {
 		startFROM();
 		POPLine();POP(-FLOAD("20") / 2F);
 		POPLine();startTO();
 		POPLine();POP(MathHelper.clamp_float(-FLOAD("20") / 2F, -45f, 45f));
+		POPLine();stop();
+	}
+
+	@HookReplacer(targetMethod = "renderEquippedItems", isMandatory = false)
+	@SideOnly(Side.CLIENT)
+	public static void fixCapeAxisYShifted(RenderPlayer render, AbstractClientPlayer player, float ticks) {
+		startFROM();
+		POPLine();POP(-FLOAD("21") / 2F);
+		POPLine();startTO();
+		POPLine();POP(MathHelper.clamp_float(-FLOAD("21") / 2F, -45f, 45f));
 		POPLine();stop();
 	}
 }
