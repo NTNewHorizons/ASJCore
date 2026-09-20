@@ -58,6 +58,21 @@ compileJava {
 sourceCompatibility = targetCompatibility = '1.8'
 compileKotlin.kotlinOptions.jvmTarget = "1.8"
 
+def patchedForgeSrcName = 'forgeSrc-1.7.10-10.13.4.1614-1.7.10.jar'
+def patchedForgeBinName = 'forgeBin-1.7.10-10.13.4.1614-1.7.10.jar'
+def restorePatchedForgeSrc = tasks.register('restorePatchedForgeSrc', Copy) {
+	from file("gradle/$patchedForgeSrcName")
+	from(file("gradle/$patchedForgeSrcName")) {
+		rename { patchedForgeBinName }
+	}
+	into file("$buildDir/dirtyArtifacts")
+	mustRunAfter clean, deobfBinJar
+}
+
+tasks.matching { it.name.startsWith('compile') }.configureEach {
+	dependsOn restorePatchedForgeSrc
+}
+
 jar {
 	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 	
