@@ -1,6 +1,5 @@
 package alexsocol.patcher.asm.hook;
 
-import alexsocol.patcher.compat.AngelicaCompat;
 import com.KAIIIAK.classManipulators.HookReplacer;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -29,7 +28,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.ComponentScatteredFeaturePieces;
 import net.minecraft.world.gen.structure.StructureBoundingBox;
 import org.lwjgl.input.Keyboard;
-import org.lwjgl.util.glu.Project;
 
 import java.io.File;
 import java.util.Random;
@@ -93,28 +91,6 @@ public class ASJHookReplacerHandler {
 		}
 	}
 	
-	
-	// Perspective vs Ortho proj config. Keeping old line for other mods like RiftFlux to mixin/hook into
-	@HookReplacer.CreateHRG(name = "orthoProjection")
-	@HookReplacer(mandatoryGroups = "orthoProjection")
-	public static void setupCameraTransform(EntityRenderer er, float f, int i) {
-		startFROM();
-		Project.gluPerspective(er.getFOVModifier(f, true), (float)er.mc.displayWidth / (float)er.mc.displayHeight, 0.05F, er.farPlaneDistance * 2F);
-		startTO();
-		Project.gluPerspective(er.getFOVModifier(f, true), (float)er.mc.displayWidth / (float)er.mc.displayHeight, 0.05F, er.farPlaneDistance * 2F);
-		AngelicaCompat.switchToOrtho(er, f, er.farPlaneDistance * 2F);
-		stop();
-	}
-	
-	@HookReplacer(targetMethod = "setupCameraTransform", mandatoryGroups = "orthoProjection")
-	public static void setupCameraTransformOF(EntityRenderer er, float f, int i) {
-		startFROM();
-		Project.gluPerspective(er.getFOVModifier(f, true), (float)er.mc.displayWidth / (float)er.mc.displayHeight, 0.05F, FLOAD("4"));
-		startTO();
-		Project.gluPerspective(er.getFOVModifier(f, true), (float)er.mc.displayWidth / (float)er.mc.displayHeight, 0.05F, FLOAD("4"));
-		AngelicaCompat.switchToOrtho(er, f, FLOAD("4"));
-		stop();
-	}
 	
 	// bind smooth camera key
 	@HookReplacer(targetMethod = "<init>")

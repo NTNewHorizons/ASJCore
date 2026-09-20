@@ -10,9 +10,7 @@ import alexsocol.patcher.asm.ASJHookLoader
 import alexsocol.patcher.crafting.CraftingHandler
 import alexsocol.patcher.event.ServerStartedEvent
 import alexsocol.patcher.event.ServerStartingEvent
-import alexsocol.patcher.event.ServerStoppedEvent
 import alexsocol.patcher.event.ServerStoppingEvent
-import alexsocol.patcher.handler.KeyBindingHandler
 import alexsocol.patcher.handler.PatcherEventHandler
 import alexsocol.patcher.handler.PatcherEventHandlerClient
 import alexsocol.patcher.handler.PlayerReachDistanceHandler
@@ -75,7 +73,6 @@ object PatcherMain {
 		BlockTrapDoor.disableValidation = PatcherConfigHandler.floatingTrapDoors
 		
 		if (ASJUtilities.isClient) {
-			KeyBindingHandler.eventFML()
 			PatcherEventHandlerClient.eventForge()
 			ASJShaderHelper.registerHandlers()
 			if (!ASJHookLoader.OBF) ClientCommandHandler.instance.registerCommand(CommandResources)

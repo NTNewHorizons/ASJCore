@@ -39,7 +39,6 @@ object PatcherConfigHandler: ASJConfigHandler() {
 	var lightningID = 150
 	var maxParticles = 4000
 	var maxPistonPush = 12
-	var orthoProjectionOn = true
 	var portalHook = true
 	var quietGhasts = true
 	var removeStreamKeys = true
@@ -98,7 +97,6 @@ object PatcherConfigHandler: ASJConfigHandler() {
 		lightningID = loadProp(CATEGORY_GENERAL, "lightningID", lightningID, true, "ID for lightning bolt entity")
 		maxParticles = loadProp(CATEGORY_GENERAL, "maxParticles", maxParticles, true, "How many [any] particles can there be at one time (defaults to vanilla value)")
 		maxPistonPush = loadProp(CATEGORY_GENERAL, "maxPistonPush", maxPistonPush, false, "How many blocks can a piston push (defaults to vanilla value)")
-		orthoProjectionOn = loadProp(CATEGORY_GENERAL, "orthoProjectionOn", orthoProjectionOn, true, "Set this to false to disable orthographic projection feature")
 		portalHook = loadProp(CATEGORY_GENERAL, "portalHook", portalHook, false, "Set this to true to disable closing GUI when entering nether portal")
 		quietGhasts = loadProp(CATEGORY_GENERAL, "quietGhasts", quietGhasts, false, "Set this to false to make ghasts loud as usual")
 		removeStreamKeys = loadProp(CATEGORY_GENERAL, "removeStreamKeys", removeStreamKeys, true, "Set this to false to keep useless streamer keys (KeyBindingsOverhaul/ReBind compat)")

@@ -82,7 +82,6 @@ class ASJHookLoader: HookLoader() {
 		
 		registerHookContainer("alexsocol.patcher.asm.hook.ASJHookHandler")
 		registerHookContainer("alexsocol.patcher.asm.hook.BiomeDictionaryForWEHooks")
-		registerHookContainer("alexsocol.patcher.asm.hook.NoEntityInteractionHandler")
 		registerHookContainer("alexsocol.patcher.asm.hook.ReachDistanceHooks")
 		
 		if (PatcherPreConfigHandler.topDownButtons) registerHookContainer("alexsocol.patcher.asm.hook.BlockButtonExtender")

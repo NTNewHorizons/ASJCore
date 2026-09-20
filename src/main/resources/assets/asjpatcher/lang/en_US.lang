@@ -41,11 +41,6 @@ asjcore.commands.tpdim.worlderr=Dimension Initialization Error
 
 commands.summon.usage.new=/summon <EntityName> [['x'count]] [x] [y] [z] [dataTag]
 
-asjcore.noEntityInteract=Toggle Entity Interaction
-asjcore.orthoProjection=Toggle Projection
-asjcore.noEntityInteract.false=[ASJCore] Entity interaction enabled
-asjcore.noEntityInteract.true=[ASJCore] Entity interaction disabled
-
 attribute.name.asjpatcher.reachDistance=Reach Distance
 
 options.snooper.view.new=Snooper Data...

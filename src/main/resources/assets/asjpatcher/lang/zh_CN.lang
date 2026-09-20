@@ -40,11 +40,6 @@ asjcore.commands.tpdim.worlderr=维度初始化错误
 
 commands.summon.usage.new=/summon <实体名称> [['x'数量]] [x] [y] [z] [数据标签]
 
-asjcore.noEntityInteract=切换实体交互
-asjcore.orthoProjection=切换正交投影/透视投影
-asjcore.noEntityInteract.false=[ASJCore] 实体交互已启用
-asjcore.noEntityInteract.true=[ASJCore] 实体交互已禁用
-
 attribute.name.asjpatcher.reachDistance=交互距离
 
 options.snooper.view.new=匿名信息反馈数据...

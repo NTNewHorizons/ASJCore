@@ -1,7 +1,5 @@
 package alexsocol.patcher.compat
 
-import alexsocol.asjlib.D
-import alexsocol.patcher.handler.KeyBindingHandler
 import net.minecraft.client.renderer.*
 import org.lwjgl.opengl.GL11.*
 
@@ -25,15 +23,6 @@ object AngelicaCompat {
 	
 	fun deleteDisplayLists(id: Int) {
 		glDeleteLists(id, GLAllocation.mapDisplayLists.remove(id) as Int)
-	}
-	
-	@JvmStatic
-	fun switchToOrtho(er: EntityRenderer, f: Float, clipDistance: Float) {
-		if (!KeyBindingHandler.orthoProjectionState) return
-		
-		glLoadIdentity()
-		val mod = er.getFOVModifier(f, true) * 2.0
-		glOrtho(er.mc.displayWidth / -mod, er.mc.displayWidth / mod, er.mc.displayHeight / -mod, er.mc.displayHeight / mod, 0.05, clipDistance.D)
 	}
 	
 	fun glFogiHook(pname: Int, param: Int) {
