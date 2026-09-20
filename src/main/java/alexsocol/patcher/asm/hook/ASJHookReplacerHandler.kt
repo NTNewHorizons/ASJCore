@@ -53,9 +53,9 @@ fun func_150567_a(target: BiomeGenJungle, rand: Random): WorldGenAbstractTree? {
 @HookReplacer(targetMethod = "setupFog", mandatoryGroups = ["blindnessDegree"])
 fun blindnessDegree(er: EntityRenderer, fogMode: Int, ticks: Float) {
 	startFROM()
-	POP(5f); FSTORE("7")
+	POP(5f); FSTORE("6")
 	startTO()
-	POP(5f / (ALOAD<EntityLivingBase>("3").getActivePotionEffect(Potion.blindness).amplifier + 1)); FSTORE("7")
+	POP(5f / (ALOAD<EntityLivingBase>("3").getActivePotionEffect(Potion.blindness).amplifier + 1)); FSTORE("6")
 	stop()
 }
 

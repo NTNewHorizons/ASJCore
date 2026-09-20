@@ -64,6 +64,7 @@ jar {
 	from configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
 	exclude 'org/intellij/lang/annotations/**'
 	exclude 'org/jetbrains/annotations/**'
+	exclude 'META-INF/versions/**'
 	
 	manifest {
 		attributes 'FMLAT': 'asjlib_at.cfg'
@@ -111,6 +112,7 @@ tasks.register('deobfJar', Jar) {
     from configurations.embed.collect { it.isDirectory() ? it : zipTree(it) }
 	exclude 'org/intellij/lang/annotations/**'
 	exclude 'org/jetbrains/annotations/**'
+	exclude 'META-INF/versions/**'
 	manifest.attributes(jar.manifest.getAttributes())
 }
 
