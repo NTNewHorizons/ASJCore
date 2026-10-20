@@ -39,7 +39,7 @@ public class MinecraftClassTransformer extends HookClassTransformer implements I
 	}
 	
 	private HashMap<Integer, String> loadMethodNames() throws IOException {
-		InputStream resourceStream = getClass().getResourceAsStream("/methods.bin");
+		InputStream resourceStream = MinecraftClassTransformer.class.getResourceAsStream("/assets/asjcore/hooklib/methods.bin");
 		if (resourceStream == null) throw new IOException("Methods dictionary not found");
 		DataInputStream input = new DataInputStream(new BufferedInputStream(resourceStream));
 		int numMethods = input.readInt();

@@ -139,7 +139,7 @@ tasks.register('sourcesJar', Jar) {
 	from sourceSets.main.allSource
 	exclude "assets"
 	exclude "asjlib_at.cfg"
-	exclude "methods.bin"
+	exclude "assets/asjcore/hooklib/methods.bin"
 	exclude "McpToSrg.csv"
 }
 
